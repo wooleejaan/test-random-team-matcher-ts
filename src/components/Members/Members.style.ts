@@ -35,12 +35,16 @@ export const MemberWrapper = styled.li`
   height: 40px;
   margin-bottom: 12px;
   padding: 0 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Member = styled.div``;
 
 export const RemouveButton = styled.img`
   width: 20px;
+  right: 0;
 `;
 
 export const Form = styled.form`
