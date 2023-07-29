@@ -39,6 +39,10 @@ export const MemberWrapper = styled.li`
 
 export const Member = styled.div``;
 
+export const RemouveButton = styled.img`
+  width: 20px;
+`;
+
 export const Form = styled.form`
   ${Mixin.flex('space-between')}
   position: absolute;
