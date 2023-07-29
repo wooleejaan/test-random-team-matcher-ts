@@ -22,6 +22,13 @@ const Members = ({ members, setMembers }: IProps) => {
     setMember(newMember);
   };
 
+  const handleClickDeleteMember = (target: string) => {
+    return () => {
+      const newMembers = members.filter((item) => item !== target);
+      setMembers(newMembers);
+    };
+  };
+
   return (
     <S.MembersWrapper>
       {members.length > 0 ? (
@@ -29,7 +36,7 @@ const Members = ({ members, setMembers }: IProps) => {
           {members.map((member, index) => (
             <S.MemberWrapper key={index} data-member={member}>
               <S.Member>{member}</S.Member>
-              <S.RemouveButton src={IconRemove}></S.RemouveButton>
+              <S.RemouveButton src={IconRemove} onClick={handleClickDeleteMember(member)}></S.RemouveButton>
             </S.MemberWrapper>
           ))}
         </S.Members>
