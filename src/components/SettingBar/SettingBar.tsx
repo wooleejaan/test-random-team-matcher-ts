@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useEffect } from 'react';
 import * as S from './SettingBar.style';
 import { ISettingOption } from './SettingBar.interface';
 
@@ -8,7 +8,19 @@ interface IProps {
 }
 
 const SettingBar = ({ settingOptions, setSettingOptions }: IProps) => {
-  const handleChangeOptionType = (event: ChangeEvent<HTMLInputElement>) => {};
+  const handleChangeOptionType = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(settingOptions);
+    const batchSettingOptions = settingOptions.map(({ title, checked, id, value }) => {
+      return {
+        title,
+        checked: !checked,
+        id,
+        value,
+      };
+    });
+
+    setSettingOptions(batchSettingOptions);
+  };
 
   const handleCounter = (type: '+' | '-') => {
     const add = type === '+' ? 1 : -1;
